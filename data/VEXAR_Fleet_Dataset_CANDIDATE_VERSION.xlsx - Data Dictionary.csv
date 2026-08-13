@@ -1,0 +1,34 @@
+Data Dictionary,,
+,,
+Sheet,Column,Description
+Drivers,Driver_ID,"Unique driver identifier, D01-D30"
+Drivers,Driver_Name,Synthetic name
+Drivers,Age,Driver age in years
+Drivers,Gender,Male/Female
+Drivers,License_Experience_Years,Years holding a driving license
+Drivers,Date_Joined_Fleet,Date driver joined the VEXAR fleet
+Drivers,Primary_Vehicle_ID,Vehicle normally assigned to this driver
+Drivers,Home_Hub,Named locality/hub the driver typically operates from
+Vehicles,Vehicle_ID,"Unique vehicle identifier, V01-V30"
+Vehicles,Vehicle_Type,All vehicles are two-wheelers 
+Vehicles,Make,Manufacturer
+Vehicles,Model,Model name
+Vehicles,Manufacture_Year,Year of manufacture
+Vehicles,Registration_Date,RTO registration date
+Vehicles,Odometer_KM_Start_of_Week,Odometer reading at the start of the observed week
+Vehicles,Last_Service_Date,Date of last workshop service
+Trips,Trip_ID,Unique trip identifier
+Trips,Driver_ID,Driver who took this trip
+Trips,Vehicle_ID,Vehicle used for that particular trip 
+Trips,Trip_Date,Calendar date of the trip
+Trips,Start_Time / End_Time,Trip start and end clock time
+Trips,Duration_Min,Trip duration in minutes
+Trips,Distance_KM,"Approximate distance covered, derived from per-minute speed"
+Trips,Avg_Speed_kmph / Max_Speed_kmph,Trip-level speed summary
+Trips,Start/End Latitude/Longitude,Trip start and end coordinates
+Telemetry,Trip_ID / Driver_ID / Vehicle_ID,Foreign keys back to Trips/Drivers/Vehicles
+Telemetry,Timestamp,Per-minute timestamp during the trip
+Telemetry,Latitude / Longitude,GPS coordinates at that minute
+Telemetry,Speed_kmph,Instantaneous speed at that minute
+Telemetry,Accel_X_g / Accel_Y_g / Accel_Z_g,Accelerometer reading (g-force) on 3 axes
+Telemetry,Gyro_X_dps / Gyro_Y_dps / Gyro_Z_dps,Gyroscope reading (deg/sec) on 3 axes

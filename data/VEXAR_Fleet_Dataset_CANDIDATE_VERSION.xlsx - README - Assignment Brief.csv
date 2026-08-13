@@ -1,0 +1,29 @@
+VexarDrive Technologies x Polaris Data Scientist Intern Assignment
+Dataset for candidate evaluation 
+
+PROBLEM STATEMENT
+"You are given one week of trip data from a two-wheeler delivery/rider fleet operated by VexarDrive Technologies. The dataset covers 30 drivers, 30 vehicles, and 450 trips (15 trips per driver), with per-minute GPS and IMU (accelerometer + gyroscope) sensor readings captured from the driver's mobile phone during each trip."
+
+"Using this data, build TWO dashboards:"
+  1. Driver Behaviour Dashboard - identify and score risky vs. safe driving patterns per driver.
+  2. Vehicle Health Status Dashboard - identify vehicles showing signs of mechanical wear or irregular sensor signatures that may need maintenance.
+
+"For each metric or score shown on your dashboards, you must justify why that value is what it is (i.e. show your reasoning/methodology, not just the number) and clearly note any assumptions."
+You should also propose what else this dataset could be used for beyond these two dashboards.
+
+DATASET STRUCTURE
+• Drivers - one row per driver (master data)
+• Vehicles - one row per vehicle (master data)
+"• Trips - one row per trip, with trip-level summary stats"
+• Telemetry - one row per minute per trip: GPS + accelerometer + gyroscope readings
+
+HOW THE SHEETS JOIN
+Telemetry.Trip_ID  → Trips.Trip_ID
+Trips.Driver_ID    → Drivers.Driver_ID
+Trips.Vehicle_ID   → Vehicles.Vehicle_ID
+
+
+SUBMISSION
+
+The candidates are required to complete the assignment in 4 days and submit their work in the below form. 
+Submit Assignment Here
