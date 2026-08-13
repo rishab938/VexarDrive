@@ -9,7 +9,9 @@ import {
   MethodologyDetails
 } from '../types';
 
-const API_BASE = 'http://localhost:8000/api';
+const API_BASE = window.location.origin.includes('5173')
+  ? 'http://localhost:8000/api'
+  : '/api';
 
 export async function fetchOverview(): Promise<OverviewMetrics> {
   const res = await fetch(`${API_BASE}/overview`);
