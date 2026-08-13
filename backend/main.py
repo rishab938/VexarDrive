@@ -624,34 +624,4 @@ def get_methodology_details():
         }
     }
 
-# --- Static File Serving for Single-Platform Deployment ---
-from fastapi.staticfiles import StaticFiles
-from fastapi.responses import FileResponse
 
-# Get absolute path to frontend/dist
-backend_dir = os.path.dirname(os.path.abspath(__file__))
-workspace_dir = os.path.dirname(backend_dir)
-frontend_dist_path = os.path.join(workspace_dir, "frontend", "dist")
-
-if os.path.exists(frontend_dist_path):
-    print(f"Frontend dist directory found at: {frontend_dist_path}. Mounting static routes...")
-    app.mount("/assets", StaticFiles(directory=os.path.join(frontend_dist_path, "assets")), name="assets")
-    
-    @app.get("/{catchall:path}")
-    def serve_frontend(catchall: str):
-        # Allow API routes to fail with standard 404
-        if catchall.startswith("api/"):
-            raise HTTPException(status_code=404, detail="API route not found")
-        
-        # Serve exact file if it exists in dist/ (e.g. favicon.svg, icons.svg)
-        file_path = os.path.join(frontend_dist_path, catchall)
-        if os.path.exists(file_path) and os.path.isfile(file_path):
-            return FileResponse(file_path)
-        
-        # Fall back to index.html for React SPA client-side routing
-        index_file = os.path.join(frontend_dist_path, "index.html")
-        if os.path.exists(index_file):
-            return FileResponse(index_file)
-        raise HTTPException(status_code=404, detail="Frontend build index not found")
-else:
-    print(f"Frontend dist not found at {frontend_dist_path}. Running API-only mode.")
